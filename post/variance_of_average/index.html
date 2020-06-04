@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light"><head>
-    <title> Alex Sieusahai | Alex Sieusahai&#39;s Notes </title>
+    <title> Alex Sieusahai | Variance Of Average </title>
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="My Notes on Math, Stats, Reinforcement Learning and Machine Learning.">
     
@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://alexsieusahai.github.io/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://alexsieusahai.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://alexsieusahai.github.io/favicons/favicon-16x16.png">
-    <link rel="canonical" href="https://alexsieusahai.github.io/">
+    <link rel="canonical" href="https://alexsieusahai.github.io/post/variance_of_average/">
     
     
     <script type="text/javascript" src="https://alexsieusahai.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
@@ -60,7 +60,7 @@
         
         
         
-        <li><a class="current" href="/" title="">Home</a></li>
+        <li><a  href="/" title="">Home</a></li>
         
         
         <li><a  href="/post/" title="">Posts</a></li>
@@ -78,65 +78,48 @@
 
             <div class="autopagerize_page_element">
                 <div class="content">
-  
-  
-  <div class="post animated fadeInDown">
-    <div class="post-title">
-      <h3><a href="/post/markov-inequality-proof/">Markov&#39;s Inequality</a>
-      </h3>
-    </div>
-    <div class="post-content"><div class="p_part"><p>Sometimes, it might be useful for us to bound the probability of some random variable $X$ being bigger than some number $\epsilon$.</p></div>
-  
-  <div class="p_part"><p></p></div></div>
-    <div class="post-footer">
-      <div class="meta">
-        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
-                 
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="post animated fadeInDown">
-    <div class="post-title">
-      <h3><a href="/post/subgaussian-exepctation-proof/">The Expectation of Subgaussian Random Variables</a>
-      </h3>
-    </div>
-    <div class="post-content"><div class="p_part"><p>This is a portion of exercise 5.7 in Lattimore&rsquo;s Bandit Algorithms. The rest of the results are not too hard to prove, but I found this portion of exercise 5.</p></div>
-  
-  <div class="p_part"><p></p></div></div>
-    <div class="post-footer">
-      <div class="meta">
-        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
-                 
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="post animated fadeInDown">
-    <div class="post-title">
-      <h3><a href="/post/variance_of_average/">Variance Of Average</a>
-      </h3>
-    </div>
-    <div class="post-content"><div class="p_part"><p>This is exercise 5.1 from Lattimore&rsquo;s Bandit Algorithms.
-Statement Let $X_1, X_2, &hellip;, X_n$ be a sequence of iid. random variables with mean $\mu$ and variance $\sigma^2 &lt; \infty$.</p></div>
-  
-  <div class="p_part"><p></p></div></div>
-    <div class="post-footer">
-      <div class="meta">
-        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
-                 
-        </div>
-      </div>
-    </div>
-  </div>
-  
-<div class="pagination">
-  
+<div class="post animated fadeInDown">
+    <div class="post-content">
 
+      <div class="post-title">
+        <h3>Variance Of Average
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">1-minute read</span>
+        </div>
+        
+        </div>
 
+    <p>This is exercise 5.1 from Lattimore&rsquo;s <em>Bandit Algorithms</em>.</p>
+<h2 id="statement">Statement</h2>
+<p>Let $X_1, X_2, &hellip;, X_n$ be a sequence of iid. random variables with mean $\mu$ and variance $\sigma^2 &lt; \infty$.
+Let $ \hat{\mu} = \frac{1}{n} \sum_{t=1}^n X_t $ and show that $ \mathbb{E}[(\hat{\mu} - \mu)^2] = \sigma^2/n $.</p>
+<h2 id="proof">Proof</h2>
+<p>This falls quite easily utilizing two important properties of variance:
+$$ \mathbb{V}[aX] = a^2 \mathbb{V}[X] \text{ for arbitrary $a \in \mathbb{R}$ }  (*) $$
+$$ \mathbb{V}[\sum_{t=1}^n X_t] = \sum_{t=1}^n \mathbb{V}[X_t] (**) $$</p>
+<p>So, we are calculating $\mathbb{V}[ \frac{1}{n} \sum_{t=1}^n X_t ]$.
+First, use (*) to obtain
+$$ \mathbb{V}[ \frac{1}{n} \sum_{t=1}^n X_t ] = \frac{1}{n^2} \mathbb{V} [\sum_{t=1}^n X_t]. $$
+Then, use (**) to obtain
+$$ \frac{1}{n^2} \mathbb{V} [\sum_{t=1}^n X_t] = \frac{1}{n^2} \sum_{t=1}^n \mathbb{V}[X_t] = \frac{1}{n^2} n \sigma^2 = \frac{\sigma^2}{n}, $$
+as required. This completes the proof!</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
+           
+    
 </div>
+
 
                 </div>
             </div>

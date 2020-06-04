@@ -29,5 +29,24 @@
       <description>Sometimes, it might be useful for us to bound the probability of some random variable $X$ being bigger than some number $\epsilon$.</description>
     </item>
     
+    <item>
+      <title>The Expectation of Subgaussian Random Variables</title>
+      <link>https://alexsieusahai.github.io/post/subgaussian-exepctation-proof/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://alexsieusahai.github.io/post/subgaussian-exepctation-proof/</guid>
+      <description>This is a portion of exercise 5.7 in Lattimore&amp;rsquo;s Bandit Algorithms. The rest of the results are not too hard to prove, but I found this portion of exercise 5.</description>
+    </item>
+    
+    <item>
+      <title>Variance Of Average</title>
+      <link>https://alexsieusahai.github.io/post/variance_of_average/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://alexsieusahai.github.io/post/variance_of_average/</guid>
+      <description>This is exercise 5.1 from Lattimore&amp;rsquo;s Bandit Algorithms.
+Statement Let $X_1, X_2, &amp;hellip;, X_n$ be a sequence of iid. random variables with mean $\mu$ and variance $\sigma^2 &amp;lt; \infty$.</description>
+    </item>
+    
   </channel>
 </rss>

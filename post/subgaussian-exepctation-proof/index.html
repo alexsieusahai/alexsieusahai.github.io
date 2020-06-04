@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light"><head>
-    <title> Alex Sieusahai | Alex Sieusahai&#39;s Notes </title>
+    <title> Alex Sieusahai | The Expectation of Subgaussian Random Variables </title>
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="My Notes on Math, Stats, Reinforcement Learning and Machine Learning.">
     
@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://alexsieusahai.github.io/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://alexsieusahai.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://alexsieusahai.github.io/favicons/favicon-16x16.png">
-    <link rel="canonical" href="https://alexsieusahai.github.io/">
+    <link rel="canonical" href="https://alexsieusahai.github.io/post/subgaussian-exepctation-proof/">
     
     
     <script type="text/javascript" src="https://alexsieusahai.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
@@ -60,7 +60,7 @@
         
         
         
-        <li><a class="current" href="/" title="">Home</a></li>
+        <li><a  href="/" title="">Home</a></li>
         
         
         <li><a  href="/post/" title="">Posts</a></li>
@@ -78,65 +78,57 @@
 
             <div class="autopagerize_page_element">
                 <div class="content">
-  
-  
-  <div class="post animated fadeInDown">
-    <div class="post-title">
-      <h3><a href="/post/markov-inequality-proof/">Markov&#39;s Inequality</a>
-      </h3>
-    </div>
-    <div class="post-content"><div class="p_part"><p>Sometimes, it might be useful for us to bound the probability of some random variable $X$ being bigger than some number $\epsilon$.</p></div>
-  
-  <div class="p_part"><p></p></div></div>
-    <div class="post-footer">
-      <div class="meta">
-        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
-                 
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="post animated fadeInDown">
-    <div class="post-title">
-      <h3><a href="/post/subgaussian-exepctation-proof/">The Expectation of Subgaussian Random Variables</a>
-      </h3>
-    </div>
-    <div class="post-content"><div class="p_part"><p>This is a portion of exercise 5.7 in Lattimore&rsquo;s Bandit Algorithms. The rest of the results are not too hard to prove, but I found this portion of exercise 5.</p></div>
-  
-  <div class="p_part"><p></p></div></div>
-    <div class="post-footer">
-      <div class="meta">
-        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
-                 
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="post animated fadeInDown">
-    <div class="post-title">
-      <h3><a href="/post/variance_of_average/">Variance Of Average</a>
-      </h3>
-    </div>
-    <div class="post-content"><div class="p_part"><p>This is exercise 5.1 from Lattimore&rsquo;s Bandit Algorithms.
-Statement Let $X_1, X_2, &hellip;, X_n$ be a sequence of iid. random variables with mean $\mu$ and variance $\sigma^2 &lt; \infty$.</p></div>
-  
-  <div class="p_part"><p></p></div></div>
-    <div class="post-footer">
-      <div class="meta">
-        <div class="info"><i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
-                 
-        </div>
-      </div>
-    </div>
-  </div>
-  
-<div class="pagination">
-  
+<div class="post animated fadeInDown">
+    <div class="post-content">
 
+      <div class="post-title">
+        <h3>The Expectation of Subgaussian Random Variables
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">2-minute read</span>
+        </div>
+        
+        </div>
 
+    <p>This is a portion of exercise 5.7 in Lattimore&rsquo;s <em>Bandit Algorithms</em>. The rest of the results are not too hard to prove, but I found this portion of exercise 5.7 the most challenging by far.</p>
+<p>A random variable $X$ is considered to be <em>$\sigma$-subgaussian</em> if for all $\lambda$,
+$$ \mathbb{E}[e^{\lambda X}] \leq e^{\lambda^2 \sigma^2 / 2}. $$</p>
+<p>A known property of subgaussian random variables is that their expectation is 0. How could that be?
+Well, let&rsquo;s think about how we could possibly obtain $\mathbb{E}[X]$ in some way from the definition.</p>
+<p>Well, something we could use to obtain $\mathbb{E}[X]$ would be to utilize the power series representation of $e^x$:
+$$ e^x = \sum_{n=0}^\infty \frac{x^n}{n!} $$
+As a result, we have that
+$$ \mathbb{E}[e^{\lambda X}] = \mathbb{E}[ \sum_{n=0}^\infty \frac{(\lambda X)^n}{n!} ] $$
+Using the linearity of expectation, we have that
+$$ = 1 + \mathbb{E}[X] + \lambda^2 \mathbb{E}[X^2] / 2 + &hellip; $$
+Using the definition of subgaussianity, we have that
+$$ \leq e^{\lambda^2 \sigma^2 / 2} = 1 + (\lambda\sigma)^2 / 2 + (\lambda\sigma)^4 / 4 + &hellip; $$
+So, to recap, we now have
+$$ 1 + \lambda \mathbb{E}[X] + \lambda^2 \mathbb{E}[X^2] / 2 + &hellip; \leq e^{\lambda^2 \sigma^2 / 2} = 1 + (\lambda\sigma)^2 / 2 + (\lambda\sigma)^4 / 4 + &hellip; $$
+$$ \lambda \mathbb{E}[X] + \lambda^2 \mathbb{E}[X^2] / 2 + &hellip; (\lambda\sigma)^2 / 2 + (\lambda\sigma)^4 / 4 + &hellip; (*) $$
+So, if we divide everything by $\lambda &gt; 0$, we have
+$$ \mathbb{E}[X] + \lambda \mathbb{E}[X^2] / 2 + &hellip; \leq \lambda\sigma^2 / 2 + \lambda^3\sigma^4 / 4 + &hellip; $$
+Thus, if we take $\lambda \to 0^+$, we have that $\mathbb{E}[X] \leq 0$.</p>
+<p>If we revisit (*), and instead divide everything by $\lambda &lt; 0$, we have
+$$ \mathbb{E}[X] + \lambda \mathbb{E}[X^2] / 2 + &hellip; \geq \lambda\sigma^2 / 2 + \lambda^3\sigma^4 / 4 + &hellip; $$
+Thus, if we take $\lambda \to 0^-$, we have that $\mathbb{E}[X] \geq 0$.</p>
+<p>So, for arbitrary $\lambda$, we have that $0 \leq \mathbb{E}[X] \leq 0 \implies \mathbb{E}[X] = 0$. This completes the proof!</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
+           
+    
 </div>
+
 
                 </div>
             </div>
