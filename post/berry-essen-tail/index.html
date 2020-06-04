@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light"><head>
-    <title> Alex Sieusahai | Posts </title>
+    <title> Alex Sieusahai | Obtaining Tail Bounds For (Subgaussian) Random Variables </title>
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="My Notes on Math, Stats, Reinforcement Learning and Machine Learning.">
     
@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://alexsieusahai.github.io/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://alexsieusahai.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://alexsieusahai.github.io/favicons/favicon-16x16.png">
-    <link rel="canonical" href="https://alexsieusahai.github.io/post/">
+    <link rel="canonical" href="https://alexsieusahai.github.io/post/berry-essen-tail/">
     
     
     <script type="text/javascript" src="https://alexsieusahai.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
@@ -63,7 +63,7 @@
         <li><a  href="/" title="">Home</a></li>
         
         
-        <li><a class="current" href="/post/" title="">Posts</a></li>
+        <li><a  href="/post/" title="">Posts</a></li>
         
         
         <li><a  href="/about/" title="">About</a></li>
@@ -78,54 +78,55 @@
 
             <div class="autopagerize_page_element">
                 <div class="content">
-<div class="archive animated fadeInDown">
-   
-    <ul class="list-with-title">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Obtaining Tail Bounds For (Subgaussian) Random Variables
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">2-minute read</span>
+        </div>
+        
+        </div>
+
+    <p>This is exercise 5.5 of Lattimore&rsquo;s <em>Bandit Algorithms</em>.</p>
+<h2 id="statement">Statement</h2>
+<p>Let $X_1, X_2, &hellip;, X_n$ be a sequence of iid. random variables with mean $\mu$, variance $\sigma^2$ and bounded third absolute moment, $\rho = \mathbb{E}[|X_1 - \mu|^3] &lt; \infty$.
+Let $S_n = \sum_{t=1}^n (X_t - \mu) / \sigma$. The Berry-Esseen theorem shows that
+$$ sup_x | \mathbb{P}(S_n / \sqrt{n} \leq x) - \Phi(x) | \leq C \rho / \sqrt{n}, $$
+where $C &lt; 1/2$ is a universal constant, and $\Phi$ is the CDF of a (0, 1)-Gaussian random variable.</p>
+<p>Let $\hat{\mu}_n = \frac{1}{n} \sum_{t=1}^n X_t$. Find a bound of the form $\mathbb{P}(\hat{\mu}_n \geq \mu + \epsilon)$ for positive values of $\epsilon$.</p>
+<h3 id="solution">Solution</h3>
+<p>Note: I believe this is right but it&rsquo;s possible that I could have made errors. If you do notice them, please let me know via email or by making a new issue on the Github repository corresponding to this blog.<br>
+This may seem a little intimidating but indeed it&rsquo;s actually quite simple. Recall that expectations are linear, so we have that for any $t \in \{0, 1, &hellip;, n\}$, we have that
+$$ \mathbb{E}[\frac{X_t}{n}] = \frac{\mu}{n}, \mathbb{V}[\frac{X_t}{n}] = \frac{\sigma^2}{n^2}. $$
+Note also that $\sum_{t=1}^n \mu/n = \mu$. So, we have that
+$$ \hat{\mu} \geq \mu + \epsilon \implies \hat{\mu} - \mu \geq \epsilon \implies \sum_{t=1}^n (\frac{X_t}{n} - \frac{\mu}{n}) \geq \epsilon \implies \frac{\sum_{t=1}^n (\frac{X_t}{n} - \frac{\mu}{n})}{n^2 \sigma^2} = S_n \geq \frac{\epsilon}{n^2\sigma^2} \implies S_n / \sqrt{n} \geq \frac{\epsilon}{n^{5/2} \sigma^2} $$
+For ease of notation, let $\alpha = \frac{\epsilon}{n^{5/2} \sigma^2}$. So, via Berry-Esseen, we have that
+$$ | \mathbb{P}(S_n / \sqrt{n} \leq \alpha) - \Phi(\alpha) | \leq sup_x | \mathbb{P}(S_n / \sqrt{n} \leq x) - \Phi(x) | \leq C \rho / \sqrt{n} $$
+and thus we have that (assuming $C &gt; 0$)
+$$ -C \rho / \sqrt{n} \leq \mathbb{P}(S_n / \sqrt{n} \leq \alpha) - \Phi(\alpha)  \leq C \rho / \sqrt{n} $$
+Finally giving us our tail bounds
+$$ -C \rho / \sqrt{n} + \Phi(\alpha) \leq \mathbb{P}(S_n / \sqrt{n} \leq \alpha) \leq C \rho / \sqrt{n} + \Phi(\alpha) $$
+More succinctly stated, we have that
+$$ \mathbb{P}(\hat{\mu} - \mu \geq \epsilon) = \mathbb{P}(S_n / \sqrt{n} \geq \frac{\epsilon}{n^{5/2}\sigma^2}) \leq C\rho / \sqrt{n} + \Phi(\frac{\epsilon}{n^{5/2}\sigma^2}). $$</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
            
-      <div class="listing-title">2020</div>
-      
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/variance_of_average/" title="Variance Of Average">Variance Of Average</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
     
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/subgaussian-exepctation-proof/" title="The Expectation of Subgaussian Random Variables">The Expectation of Subgaussian Random Variables</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/berry-essen-tail/" title="Obtaining Tail Bounds For (Subgaussian) Random Variables">Obtaining Tail Bounds For (Subgaussian) Random Variables</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/markov-inequality-proof/" title="Markov&#39;s Inequality">Markov&#39;s Inequality</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/markov-subgaussian/" title="A Markov&#39;s Inequality-like Bound For Subgaussian variables">A Markov&#39;s Inequality-like Bound For Subgaussian variables</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-    
-  </div>
+</div>
+
 
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light"><head>
-    <title> Alex Sieusahai | Posts </title>
+    <title> Alex Sieusahai | A Markov&#39;s Inequality-like Bound For Subgaussian variables </title>
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="My Notes on Math, Stats, Reinforcement Learning and Machine Learning.">
     
@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://alexsieusahai.github.io/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://alexsieusahai.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://alexsieusahai.github.io/favicons/favicon-16x16.png">
-    <link rel="canonical" href="https://alexsieusahai.github.io/post/">
+    <link rel="canonical" href="https://alexsieusahai.github.io/post/markov-subgaussian/">
     
     
     <script type="text/javascript" src="https://alexsieusahai.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
@@ -63,7 +63,7 @@
         <li><a  href="/" title="">Home</a></li>
         
         
-        <li><a class="current" href="/post/" title="">Posts</a></li>
+        <li><a  href="/post/" title="">Posts</a></li>
         
         
         <li><a  href="/about/" title="">About</a></li>
@@ -78,54 +78,47 @@
 
             <div class="autopagerize_page_element">
                 <div class="content">
-<div class="archive animated fadeInDown">
-   
-    <ul class="list-with-title">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>A Markov&#39;s Inequality-like Bound For Subgaussian variables
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Wed, Jun 3, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">2-minute read</span>
+        </div>
+        
+        </div>
+
+    <p>It&rsquo;s fairly easy to show that for any $\sigma$-subgaussian random variable $X$ and $\epsilon \geq 0$, we have that
+$$ \mathbb{P}(X \geq \epsilon) \leq e^{- \frac{\epsilon^2}{2 \sigma^2}} $$
+To prove it, just notice that $f(x) = e^{\lambda x}$ is monotonically increasing, and thus we can condlude that for arbitrary $\lambda &gt; 0$:
+$$ \mathbb{P}(X \geq \epsilon) = \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) $$
+Notice that we have $e^{\lambda X}$ on the left of our inequality, and recall that for any $\sigma$-subgaussian random variable, we have that
+$$ \mathbb{E}[e^{\lambda X}] \leq e^{\lambda^2 \sigma^2 / 2} $$
+We&rsquo;d like to incorporate that expectation, and we can do so using Markov&rsquo;s Inequality:
+$$ \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) \leq \mathbb{E}[e^{\lambda X}] e^{-\lambda \epsilon} $$
+Let&rsquo;s apply the definition of subgaussianity and we&rsquo;re getting pretty close:
+$$ \mathbb{E}[e^{\lambda X}] e^{-\lambda \epsilon} \leq e^{\lambda^2 \sigma^2 / 2 - \lambda \epsilon} $$
+Now, we&rsquo;re almost there, we just have to be a little clever. Recall that we&rsquo;ve assumed arbitrary $\lambda &gt; 0$. In particular, the statement of the result does not require $\lambda$ to take on an arbitrary value, so we can select our value of $\lambda$ to help us obtain the desired result.
+In particular, select $\lambda = \epsilon / \sigma^2$.
+We then obtain the desired bound, which completes the proof!</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
            
-      <div class="listing-title">2020</div>
-      
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/variance_of_average/" title="Variance Of Average">Variance Of Average</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
     
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/subgaussian-exepctation-proof/" title="The Expectation of Subgaussian Random Variables">The Expectation of Subgaussian Random Variables</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/berry-essen-tail/" title="Obtaining Tail Bounds For (Subgaussian) Random Variables">Obtaining Tail Bounds For (Subgaussian) Random Variables</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/markov-inequality-proof/" title="Markov&#39;s Inequality">Markov&#39;s Inequality</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/markov-subgaussian/" title="A Markov&#39;s Inequality-like Bound For Subgaussian variables">A Markov&#39;s Inequality-like Bound For Subgaussian variables</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-    
-  </div>
+</div>
+
 
                 </div>
             </div>
