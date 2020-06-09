@@ -6,10 +6,19 @@
     <description>Recent content on Alex Sieusahai&#39;s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://alexsieusahai.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A First Glance At Explore Then Commit</title>
+      <link>https://alexsieusahai.github.io/post/shallow_etc/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://alexsieusahai.github.io/post/shallow_etc/</guid>
+      <description>The Explore Then Commit bandit algorithm is conceptually very simple and easy to analyze; we first explore all $k$ arms $m$ times, then proceed to exploit the arm with the highest sample mean after that.</description>
+    </item>
     
     <item>
       <title>A Markov&#39;s Inequality-like Bound For Subgaussian variables</title>

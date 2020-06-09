@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head>
+    <title> Alex Sieusahai | A First Glance At Explore Then Commit </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="My Notes on Math, Stats, Reinforcement Learning and Machine Learning.">
+    
+    <link rel="stylesheet" href="https://alexsieusahai.github.io/css/style.min.67cd718c0a3c8009c771494d381fb7128246a454bd0518fed97cb65d257db948.css" integrity="sha256-Z81xjAo8gAnHcUlNOB&#43;3EoJGpFS9BRj&#43;2Xy2XSV9uUg=" crossorigin="anonymous" type="text/css">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://alexsieusahai.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://alexsieusahai.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://alexsieusahai.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://alexsieusahai.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://alexsieusahai.github.io/post/shallow_etc/">
+    
+    
+    <script type="text/javascript" src="https://alexsieusahai.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://alexsieusahai.github.io/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">Figuring out hard stuff</a></h3>
+        <div class="description">
+          <p>My Notes on Math, Stats, Reinforcement Learning and Machine Learning.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://linkedin.com/in/alexsieusahai" rel="me" aria-label="Linkedin">
+          <i class="fa fa-2x fa-linkedin" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="https://github.com/alexsieusahai" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="alexsieu14@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Alex Sieusahai 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <ul class="nav">
+        
+        
+        
+        <li><a  href="/" title="">Home</a></li>
+        
+        
+        <li><a  href="/post/" title="">Posts</a></li>
+        
+        
+        <li><a  href="/about/" title="">About</a></li>
+        
+    </ul>
+    <div class="themeswitcher">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>A First Glance At Explore Then Commit
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Tue, Jun 9, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">4-minute read</span>
+        </div>
+        
+        </div>
+
+    <p>The Explore Then Commit bandit algorithm is conceptually very simple and easy to analyze; we first <em>explore</em> all $k$ arms $m$ times, then proceed to exploit the arm with the highest sample mean after that.</p>
+<p>For simplicity, let&rsquo;s just assume that each arm is 1-subgaussian.
+We can deal with the case of $\sigma$-subgaussian arms pretty easily by noting that for a $\sigma$-subgaussian random variable $X$, we have that $cX$ is $|c|\sigma$-subgaussian for arbitrary $c$.
+It&rsquo;s also probably easy to deal with the case where each arm has a different $\sigma$, as it probably just ends up being bookkeeping in whatever you&rsquo;re trying to prove.
+In the case where the subgaussian assumption is not met, alternative inequalities tailored for your specific distribution will have to be employed to get similar bounds.
+In contrast, if we know more about our random variables other than the loose assumption that the random variable is subgaussian, we might be able to obtain tighter bounds than what is proven here.
+A trivial example of this would be arms that have a fixed payout; each arm would only have to be played once before we know for sure which arm is the best, if we know that each arm has a fixed payout prior to playing the bandit.</p>
+<p>This algorithm seems very simple, but I don&rsquo;t think it&rsquo;s obvious as to whether or not it&rsquo;s effective.
+For example, if $m$ is very high, then we almost certainly have found the best arm, but we&rsquo;ve spent a lot of time exploring.
+Likewise, if $m$ is low, we probably won&rsquo;t find the best arm, but we&rsquo;ve spent a small amount of time exploring.
+Due to this exploration / exploitation tradeoff and the simplicity of the problem, there might be a reasonable way to select the minimum $m$ so that the optimal arm (or possibly near optimal) is found after exploring with a given probability, for instance.
+Finding a bound for the regret might be a reasonable first step to analyzing this algorithm, as then we can at least compare this algorithm to more sophisticated choices.</p>
+<h2 id="statement">Statement</h2>
+<p>When Explore Then Commit is interacting with any 1-subgaussian bandit and $1 \leq m \leq n/k$, we have that
+$$ R_n \leq m \sum_{i=1}^k \Delta_i + (n - mk) \sum_{i=1}^k \Delta_i exp( - \frac{m \Delta_i^2}{4} ). $$</p>
+<h3 id="proof">Proof</h3>
+<p>For simplicity, lets assume (without loss of generality) that the first arm is the optimal arm.</p>
+<p>The first thing to note is that we&rsquo;ve seperated the regret up into calculating it for each action then summing over, so the Regret Decomposition Lemma is probably really useful here.
+With respect to that, we have</p>
+<p>$$ R_n = \sum_{i=1}^k \Delta_i \mathbb{E}[T_i(n)]. $$</p>
+<p>From the Explore Then Commit algorithm definition, we can easily find out $\mathbb{E}[T_i(n)]$ for each arm.
+Recall that we play each arm $m$ times, then we keep playing it only if it has the highest sample mean:</p>
+<p>$$ \mathbb{E}[T_i(n)] = m + (n - mk) \mathbb{P}(\hat{\mu}_i \geq \hat{\mu_1} ) $$</p>
+<p>Now, we&rsquo;re getting closer, the main piece of the puzzle which we haven&rsquo;t really figured out yet is how we&rsquo;re going to get from that probability to a bound involving $\Delta_i$.
+The only machinery we have to get from probability to hard values is Markov&rsquo;s Inequality (and results derived from Markov&rsquo;s Inequality).
+In particular, there&rsquo;s a result proven <a href="https://alexsieusahai.github.io/post/markov-subgaussian/">earlier</a> that seems like it would be very useful.
+It also seems hard to deal with the two sample means directly, and a known property that&rsquo;s easy to prove about $\sigma$ subgaussian variables is that if we take two of them and take the sum of difference of them, the resulting variable is $\sqrt{2}\sigma$-subgaussian.
+Thus, we can do the following to the probability:</p>
+<p>$$ \mathbb{P}(\hat{\mu}_i \geq \hat{\mu_1}) = \mathbb{P}(\hat{\mu}_i - \hat{\mu_1} + \Delta_i \geq \Delta_i) $$</p>
+<p>Now, we know the definition of the sample mean in this context is:</p>
+<p>$$ \hat{\mu_i} = \sum_{j=1}^m X_{i, j} $$</p>
+<p>Note that $\hat{\mu}_i - \hat{\mu_1} + \Delta_i = \sum_{j=1}^m [ X_{i, j} - X_{1, j} + \mu_1 - \mu_i ]$ which is then $\sqrt{2m}/m = \sqrt{2/m}$-subgaussian. Finally, using the aforementioned result proven earlier, we have that
+$$ \mathbb{P}(\hat{\mu}_i - \hat{\mu_1} + \Delta_i \geq \Delta_i) \leq exp(-\Delta_i^2 m / 4).  $$</p>
+<p>Now, to recap, we have that:</p>
+<p>$$ \mathbb{E}[T_i(n)] = m + (n - mk) \mathbb{P}(\hat{\mu}_i \geq \hat{\mu_1} ) \leq m + (n - mk)exp(-\Delta_i^2 m / 4) $$</p>
+<p>And thus we have that</p>
+<p>$$ R_n = \sum_{i=1}^k \Delta_i \mathbb{E}[T_i(n)] \leq \sum_{i=1}^k \Delta_i [m + (n - mk)exp(-\Delta_i^2 m / 4)], $$</p>
+<p>as required!</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://alexsieusahai.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://alexsieusahai.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://alexsieusahai.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script><script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</html>
+</body>
+
+</html>
