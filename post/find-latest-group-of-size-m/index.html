@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head>
+    <title> Alex Sieusahai | Find Latest Group Of Size M </title>
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="My Notes on Math, Stats, Reinforcement Learning and Machine Learning.">
+    
+    <link rel="stylesheet" href="https://alexsieusahai.github.io/css/style.min.67cd718c0a3c8009c771494d381fb7128246a454bd0518fed97cb65d257db948.css" integrity="sha256-Z81xjAo8gAnHcUlNOB&#43;3EoJGpFS9BRj&#43;2Xy2XSV9uUg=" crossorigin="anonymous" type="text/css">
+    
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://alexsieusahai.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://alexsieusahai.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://alexsieusahai.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://alexsieusahai.github.io/favicons/favicon-16x16.png">
+    <link rel="canonical" href="https://alexsieusahai.github.io/post/find-latest-group-of-size-m/">
+    
+    
+    <script type="text/javascript" src="https://alexsieusahai.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
+</head><body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+      <div class="title">
+        <img src="https://alexsieusahai.github.io/images/profile.jpg" alt="profile picture">
+        <h3 title=""><a href="/">Figuring out hard stuff</a></h3>
+        <div class="description">
+          <p>My Notes on Math, Stats, Reinforcement Learning and Machine Learning.</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+        
+        <li>
+        <a href="https://linkedin.com/in/alexsieusahai" rel="me" aria-label="Linkedin">
+          <i class="fa fa-2x fa-linkedin" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="https://github.com/alexsieusahai" rel="me" aria-label="GitHub">
+          <i class="fa fa-2x fa-github" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+        <li>
+        <a href="alexsieu14@gmail.com" rel="me" aria-label="e-mail">
+          <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+        </a>          
+        </li>
+
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Alex Sieusahai 2020 </div>
+      </div>
+    </div>
+</div><div class="main">
+            <div class="page-top animated fadeInDown">
+    <ul class="nav">
+        
+        
+        
+        <li><a  href="/" title="">Home</a></li>
+        
+        
+        <li><a  href="/post/" title="">Posts</a></li>
+        
+        
+        <li><a  href="/about/" title="">About</a></li>
+        
+    </ul>
+    <div class="themeswitcher">
+        <a class="theme-switch" title="Switch Theme">
+            <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+
+            <div class="autopagerize_page_element">
+                <div class="content">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Find Latest Group Of Size M
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Thu, Sep 3, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">3-minute read</span>
+        </div>
+        
+        </div>
+
+    <p>This is <a href="https://leetcode.com/problems/find-latest-group-of-size-m/">this Leetcode problem</a>.</p>
+<h2 id="statement">Statement</h2>
+<p>Given an array <code>arr</code> that represents a permutation of numbers from <code>1</code> to <code>n</code>.
+You have a binary string of size <code>n</code> that initially has all its bits set to zero.</p>
+<p>At each step <code>i</code> (assuming both the binary string and <code>arr</code> are 1-index) from <code>1</code> to <code>n</code>, the bit at position <code>arr[i]</code> is set to <code>1</code>.
+You are given an integer <code>m</code> and you need to find the latest step at which there exists a group of ones of length <code>m</code>.
+A group of ones is contiguous substring of 1s such that it cannot be extended in either direction.</p>
+<p>Return <em>the latest step at which there exists a group of ones of length <strong>exactly</strong></em> <code>m</code>. If no such group exists, return <code>-1</code>.</p>
+<h2 id="solution">Solution</h2>
+<p>Something that screams out initially is that we are filling out a graph over time by introducing nodes, followed by grouping adjacent nodes together.
+The simplest way to keep track of all of this joining information in an efficient way is the union-find data structure.
+Intuitively, when we flip a bit from 0 to 1, we drop that node on the graph, and it contains only itself.
+Then, we look to the left, and if there&rsquo;s a group, we join it.
+Then, we look to the right, and if there&rsquo;s a group, we join it.</p>
+<p>We need some way to conveniently join things together.
+A simple way to do this is to have all nodes in a group point to some other node in a way so that if we keep following this pattern, we&rsquo;ll reach a node that points to itself.
+It&rsquo;s as if we&rsquo;re following a bunch of paths upward toward an identifier tag.</p>
+<p>We can keep track of what points to what via a <code>parent</code> mapping, which maps a node to the next node in the path described above.
+When we join two groups (first and second) together, we have the <code>root_first</code> (the node at the end of each path described above for the first group) of the first group satisfy <code>parent[root_first] = root_second</code>.
+Then, when we generate the path for anything that was in first, we&rsquo;ll come across <code>root_first</code>, which will then point to <code>root_second</code>.</p>
+<p>In this problem, we also have to keep track of the size of groups.
+Since we join groups together, we can also add their counts together using similar logic as above.</p>
+<p>We want to find the largest <code>i</code> such that there exists one group of nodes that is of size <code>m</code>.
+Thus, keeping track of the size of each group is sensible (indeed, you could probably get away with just keeping track of groups of size <code>m</code>).
+All we have to do is some more bookkeeping in the joining logic and we&rsquo;re good to go!</p>
+<p>With all of the machinery laid out, here&rsquo;s the solution I found:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#f92672">from</span> collections <span style="color:#66d9ef">import</span> defaultdict
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findLatestStep</span>(self, arr: List[int], m: int) <span style="color:#f92672">-&gt;</span> int:
+        parent <span style="color:#f92672">=</span> {}
+        sz <span style="color:#f92672">=</span> defaultdict(int)  <span style="color:#75715e"># mapping from count to number of groups with that count</span>
+        count <span style="color:#f92672">=</span> {}  <span style="color:#75715e"># mapping from parent to count</span>
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_root</span>(x):
+            path <span style="color:#f92672">=</span> []
+            <span style="color:#66d9ef">while</span> x <span style="color:#f92672">!=</span> parent[x]:
+                path<span style="color:#f92672">.</span>append(x)
+                x <span style="color:#f92672">=</span> parent[x]
+            <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> path:
+                parent[y] <span style="color:#f92672">=</span> x
+            <span style="color:#66d9ef">return</span> x
+            
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">join</span>(x, y):
+            x_root, y_root <span style="color:#f92672">=</span> get_root(x), get_root(y)
+            sz[count[y_root]] <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+            sz[count[x_root]] <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+            parent[x_root] <span style="color:#f92672">=</span> y_root
+            count[y_root] <span style="color:#f92672">+=</span> count[x_root]
+            sz[count[y_root]] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            
+        best_soln <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">for</span> i, x <span style="color:#f92672">in</span> enumerate(arr):
+            parent[x], count[x] <span style="color:#f92672">=</span> x, <span style="color:#ae81ff">1</span>
+            sz[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            
+            <span style="color:#66d9ef">if</span> x<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">in</span> parent:
+                join(x, x<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            <span style="color:#66d9ef">if</span> x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">in</span> parent:
+                join(x, x<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+                
+            <span style="color:#66d9ef">if</span> sz[m] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+                best_soln <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+            
+        <span style="color:#66d9ef">return</span> best_soln
+</code></pre></div>
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
+           
+    
+</div>
+
+
+                </div>
+            </div>
+        </div>
+</body>
+
+
+
+<script type="text/javascript" src="https://alexsieusahai.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js" integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw=" crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript" src="https://alexsieusahai.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js" integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://alexsieusahai.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js" integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro=" crossorigin="anonymous"></script><script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</html>
+</body>
+
+</html>

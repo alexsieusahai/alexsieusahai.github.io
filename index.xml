@@ -6,10 +6,20 @@
     <description>Recent content on Alex Sieusahai&#39;s Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 01 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://alexsieusahai.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Find Latest Group Of Size M</title>
+      <link>https://alexsieusahai.github.io/post/find-latest-group-of-size-m/</link>
+      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://alexsieusahai.github.io/post/find-latest-group-of-size-m/</guid>
+      <description>This is this Leetcode problem.
+Statement Given an array arr that represents a permutation of numbers from 1 to n. You have a binary string of size n that initially has all its bits set to zero.</description>
+    </item>
     
     <item>
       <title>Maximum Length of Subarray With Positive Product</title>
