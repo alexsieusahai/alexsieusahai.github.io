@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light"><head>
-    <title> Alex Sieusahai | Posts </title>
+    <title> Alex Sieusahai | Exercise 5.18 of Bandit Algorithms </title>
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="My Notes on Math, Stats, Reinforcement Learning and Machine Learning.">
     
@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://alexsieusahai.github.io/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://alexsieusahai.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://alexsieusahai.github.io/favicons/favicon-16x16.png">
-    <link rel="canonical" href="https://alexsieusahai.github.io/post/">
+    <link rel="canonical" href="https://alexsieusahai.github.io/post/bandit-algs-5-18/">
     
     
     <script type="text/javascript" src="https://alexsieusahai.github.io/js/anatole-header.min.c275265a259296f3dd50e8236a77fcbcadb1dbb9597d3045c675dcc2c7c58a93.js" integrity="sha256-wnUmWiWSlvPdUOgjanf8vK2x27lZfTBFxnXcwsfFipM=" crossorigin="anonymous"></script>
@@ -63,7 +63,7 @@
         <li><a  href="/" title="">Home</a></li>
         
         
-        <li><a class="current" href="/post/" title="">Posts</a></li>
+        <li><a  href="/post/" title="">Posts</a></li>
         
         
         <li><a  href="/about/" title="">About</a></li>
@@ -78,102 +78,49 @@
 
             <div class="autopagerize_page_element">
                 <div class="content">
-<div class="archive animated fadeInDown">
-   
-    <ul class="list-with-title">
+<div class="post animated fadeInDown">
+    <div class="post-content">
+
+      <div class="post-title">
+        <h3>Exercise 5.18 of Bandit Algorithms
+        </h3>
+        
+        <div class="info">
+          <i class="fa fa-sun-o"></i><span class="date">Fri, Dec 4, 2020</span>
+          <i class="fa fa-clock-o"></i><span class="reading-time">1-minute read</span>
+        </div>
+        
+        </div>
+
+    <h2 id="statement">Statement</h2>
+<p>Let $X_1, &hellip;, X_n$ be a sequence of $\sigma$-subgaussian random variables and $Z = max_{t \in [n]} X_t$. Prove that $\mathbb{E}[Z] \leq \sqrt{2 \sigma^2 log(n)}$.</p>
+<h3 id="solution">Solution</h3>
+<p>A key naive bound on the maximum of any set of real numbers is obviously the sum, which works nicely with the $log(n)$ term.</p>
+<p>$ \mathbb{E}[Z] \leq \sum_{t=1}^n \mathbb{E}[X_t] $
+Let $\lambda &gt; 0$. Since $ x \mapsto e^{\lambda x} $ is monotonic, we have that
+$ e^{\lambda \mathbb{E}[Z]} \leq \sum_{t=1}^n \mathbb{E}[X_t]. $
+Using the definition of subgaussianity, we have that
+$ e^{\lambda \mathbb{E}[Z]} \leq \sum_{t=1}^n \mathbb{E}[X_t] \leq n e^{\lambda^2 \sigma^2 / 2}. $</p>
+<p>So, taking the logarithm of both sides in the above inequality (which is permitted due to the monotonicity of logarithms), we have that</p>
+<p>$ \lambda \mathbb{E}[Z] \leq log(n) + \lambda^2 \sigma^2 / 2 $
+$ \mathbb{E}[Z] \leq log(n)/\lambda  + \lambda \sigma^2 / 2 $</p>
+<p>Now, we just need a slightly clever choice for $\lambda$. We know that we want to find a choice for $\lambda$ so that
+$ log(n)/\lambda  + \lambda \sigma^2 / 2 = \sqrt{2 \sigma^2 log(n)} $</p>
+<p>So, we need the first term to have $\sqrt{log(n)}$ and $\sigma$ introduced; from this alone it&rsquo;s relatively simple to deduce that $\lambda = sqrt{2 log(n)} \sigma^{-1}$ suffices.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="info">
+        
+        
+      </div>
+    </div>
+
+    
            
-      <div class="listing-title">2020</div>
-      
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/bandit-algs-5-18/" title="Exercise 5.18 of Bandit Algorithms">Exercise 5.18 of Bandit Algorithms</a>
-              <div class="post-time"><span class="date">Dec 4</span></div>
-            </div>
-          </div>
-    </ul>
     
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/bandit-algs-2-3/" title="Exercise 2.3 of Bandit Algorithms">Exercise 2.3 of Bandit Algorithms</a>
-              <div class="post-time"><span class="date">Nov 21</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/find-latest-group-of-size-m/" title="Find Latest Group Of Size M">Find Latest Group Of Size M</a>
-              <div class="post-time"><span class="date">Sep 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/max-len-subarray-pos-prod/" title="Maximum Length of Subarray With Positive Product">Maximum Length of Subarray With Positive Product</a>
-              <div class="post-time"><span class="date">Sep 1</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/exercise_8_1/" title="Exercise 8.1 of Bandit Algorithms">Exercise 8.1 of Bandit Algorithms</a>
-              <div class="post-time"><span class="date">Aug 19</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/shallow_etc/" title="A First Glance At Explore Then Commit">A First Glance At Explore Then Commit</a>
-              <div class="post-time"><span class="date">Jun 9</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/berry-essen-tail/" title="Obtaining Tail Bounds For (Subgaussian) Random Variables">Obtaining Tail Bounds For (Subgaussian) Random Variables</a>
-              <div class="post-time"><span class="date">Jun 4</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/markov-subgaussian/" title="A Markov&#39;s Inequality-like Bound For Subgaussian variables">A Markov&#39;s Inequality-like Bound For Subgaussian variables</a>
-              <div class="post-time"><span class="date">Jun 4</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/variance_of_average/" title="Variance Of Average">Variance Of Average</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/subgaussian-exepctation-proof/" title="The Expectation of Subgaussian Random Variables">The Expectation of Subgaussian Random Variables</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-      <ul class="listing">
-        <div class="listing-item">
-            <div class="listing-post"><a href="https://alexsieusahai.github.io/post/markov-inequality-proof/" title="Markov&#39;s Inequality">Markov&#39;s Inequality</a>
-              <div class="post-time"><span class="date">Jun 3</span></div>
-            </div>
-          </div>
-    </ul>
-    
-    
-  </div>
+</div>
+
 
                 </div>
             </div>
