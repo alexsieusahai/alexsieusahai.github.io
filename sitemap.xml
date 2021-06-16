@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://alexsieusahai.github.io/</loc>
-    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+    <loc>https://alexsieusahai.github.io/about/</loc>
+    <lastmod>2021-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://alexsieusahai.github.io/post/bandit-algs-5-18/</loc>
-    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+    <loc>https://alexsieusahai.github.io/</loc>
+    <lastmod>2021-06-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://alexsieusahai.github.io/post/</loc>
+    <lastmod>2021-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alexsieusahai.github.io/post/painless_ideation_setup_unity/</loc>
+    <lastmod>2021-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://alexsieusahai.github.io/post/bandit-algs-5-18/</loc>
     <lastmod>2020-12-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -50,11 +60,6 @@
   <url>
     <loc>https://alexsieusahai.github.io/post/berry-essen-tail/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://alexsieusahai.github.io/about/</loc>
-    <lastmod>2020-06-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>

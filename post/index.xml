@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Alex Sieusahai&#39;s Notes</title>
+    <title>Posts on Alex Sieusahai&#39;s Blog</title>
     <link>https://alexsieusahai.github.io/post/</link>
-    <description>Recent content in Posts on Alex Sieusahai&#39;s Notes</description>
+    <description>Recent content in Posts on Alex Sieusahai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://alexsieusahai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 16 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://alexsieusahai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Virtues of Setup / Teardown for Scene Management In Unity</title>
+      <link>https://alexsieusahai.github.io/post/painless_ideation_setup_unity/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://alexsieusahai.github.io/post/painless_ideation_setup_unity/</guid>
+      
+        <description>I&amp;rsquo;m currently developing an indie game, and it&amp;rsquo;s my first time working with Unity. I feel very comfortable working with Unity and C# now after 2-3 months of working with the tools around 8 hours a day, but there&amp;rsquo;s still things I learn everyday.</description>
+      
+    </item>
     
     <item>
       <title>Exercise 5.18 of Bandit Algorithms</title>
@@ -17,7 +24,9 @@
       <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/bandit-algs-5-18/</guid>
-      <description>Statement Let $X_1, &amp;hellip;, X_n$ be a sequence of $\sigma$-subgaussian random variables and $Z = max_{t \in [n]} X_t$. Prove that $\mathbb{E}[Z] \leq \sqrt{2 \sigma^2 log(n)}$.</description>
+      
+        <description>Statement Let $X_1, &amp;hellip;, X_n$ be a sequence of $\sigma$-subgaussian random variables and $Z = max_{t \in [n]} X_t$. Prove that $\mathbb{E}[Z] \leq \sqrt{2 \sigma^2 log(n)}$.</description>
+      
     </item>
     
     <item>
@@ -26,7 +35,9 @@
       <pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/bandit-algs-2-3/</guid>
-      <description>Statement Given an arbitrary set $\mathscr{U}$, a measurable space $(\mathscr{V}, \Sigma)$ and an arbitrary function $X : \mathscr{U} \to \mathscr{V}$, show that $\Sigma_X = { X^{-1}(A) : A \in \Sigma } $ is a $\sigma$-algebra over $\mathscr{U}$.</description>
+      
+        <description>Statement Given an arbitrary set $\mathscr{U}$, a measurable space $(\mathscr{V}, \Sigma)$ and an arbitrary function $X : \mathscr{U} \to \mathscr{V}$, show that $\Sigma_X = { X^{-1}(A) : A \in \Sigma } $ is a $\sigma$-algebra over $\mathscr{U}$.</description>
+      
     </item>
     
     <item>
@@ -35,8 +46,10 @@
       <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/find-latest-group-of-size-m/</guid>
-      <description>This is this Leetcode problem.
+      
+        <description>This is this Leetcode problem.
 Statement Given an array arr that represents a permutation of numbers from 1 to n. You have a binary string of size n that initially has all its bits set to zero.</description>
+      
     </item>
     
     <item>
@@ -45,8 +58,10 @@ Statement Given an array arr that represents a permutation of numbers from 1 to 
       <pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/max-len-subarray-pos-prod/</guid>
-      <description>This is this Leetcode problem.
+      
+        <description>This is this Leetcode problem.
 Statement Given an array of integers nums, find the maximum length of a (contiguous) subarray where the product of all elements is positive.</description>
+      
     </item>
     
     <item>
@@ -55,8 +70,10 @@ Statement Given an array of integers nums, find the maximum length of a (contigu
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/exercise_8_1/</guid>
-      <description>Statement Show that $$ \sum_{t=1}^n (1/f(t)) \sum_{s=1}^n exp(-s\epsilon^2/2) \leq 5/\epsilon^2, $$ where $f(t) = 1 + t log^2(t)$.
+      
+        <description>Statement Show that $$ \sum_{t=1}^n (1/f(t)) \sum_{s=1}^n exp(-s\epsilon^2/2) \leq 5/\epsilon^2, $$ where $f(t) = 1 + t log^2(t)$.
 Solution This follows the structure of the hints given.</description>
+      
     </item>
     
     <item>
@@ -65,7 +82,9 @@ Solution This follows the structure of the hints given.</description>
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/shallow_etc/</guid>
-      <description>The Explore Then Commit bandit algorithm is conceptually very simple and easy to analyze; we first explore all $k$ arms $m$ times, then proceed to exploit the arm with the highest sample mean after that.</description>
+      
+        <description>The Explore Then Commit bandit algorithm is conceptually very simple and easy to analyze; we first explore all $k$ arms $m$ times, then proceed to exploit the arm with the highest sample mean after that.</description>
+      
     </item>
     
     <item>
@@ -74,7 +93,9 @@ Solution This follows the structure of the hints given.</description>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/markov-subgaussian/</guid>
-      <description>It&amp;rsquo;s fairly easy to show that for any $\sigma$-subgaussian random variable $X$ and $\epsilon \geq 0$, we have that $$ \mathbb{P}(X \geq \epsilon) \leq e^{- \frac{\epsilon^2}{2 \sigma^2}} $$ To prove it, just notice that $f(x) = e^{\lambda x}$ is monotonically increasing, and thus we can condlude that for arbitrary $\lambda &amp;gt; 0$: $$ \mathbb{P}(X \geq \epsilon) = \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) $$ Notice that we have $e^{\lambda X}$ on the left of our inequality, and recall that for any $\sigma$-subgaussian random variable, we have that $$ \mathbb{E}[e^{\lambda X}] \leq e^{\lambda^2 \sigma^2 / 2} $$ We&amp;rsquo;d like to incorporate that expectation, and we can do so using Markov&amp;rsquo;s Inequality: $$ \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) \leq \mathbb{E}[e^{\lambda X}] e^{-\lambda \epsilon} $$ Let&amp;rsquo;s apply the definition of subgaussianity and we&amp;rsquo;re getting pretty close: $$ \mathbb{E}[e^{\lambda X}] e^{-\lambda \epsilon} \leq e^{\lambda^2 \sigma^2 / 2 - \lambda \epsilon} $$ Now, we&amp;rsquo;re almost there, we just have to be a little clever.</description>
+      
+        <description>It&amp;rsquo;s fairly easy to show that for any $\sigma$-subgaussian random variable $X$ and $\epsilon \geq 0$, we have that $$ \mathbb{P}(X \geq \epsilon) \leq e^{- \frac{\epsilon^2}{2 \sigma^2}} $$ To prove it, just notice that $f(x) = e^{\lambda x}$ is monotonically increasing, and thus we can condlude that for arbitrary $\lambda &amp;gt; 0$: $$ \mathbb{P}(X \geq \epsilon) = \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) $$ Notice that we have $e^{\lambda X}$ on the left of our inequality, and recall that for any $\sigma$-subgaussian random variable, we have that $$ \mathbb{E}[e^{\lambda X}] \leq e^{\lambda^2 \sigma^2 / 2} $$ We&amp;rsquo;d like to incorporate that expectation, and we can do so using Markov&amp;rsquo;s Inequality: $$ \mathbb{P}(e^{\lambda X} \geq e^{\lambda \epsilon}) \leq \mathbb{E}[e^{\lambda X}] e^{-\lambda \epsilon} $$ Let&amp;rsquo;s apply the definition of subgaussianity and we&amp;rsquo;re getting pretty close: $$ \mathbb{E}[e^{\lambda X}] e^{-\lambda \epsilon} \leq e^{\lambda^2 \sigma^2 / 2 - \lambda \epsilon} $$ Now, we&amp;rsquo;re almost there, we just have to be a little clever.</description>
+      
     </item>
     
     <item>
@@ -83,8 +104,10 @@ Solution This follows the structure of the hints given.</description>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/berry-essen-tail/</guid>
-      <description>This is exercise 5.5 of Lattimore&amp;rsquo;s Bandit Algorithms.
+      
+        <description>This is exercise 5.5 of Lattimore&amp;rsquo;s Bandit Algorithms.
 Statement Let $X_1, X_2, &amp;hellip;, X_n$ be a sequence of iid. random variables with mean $\mu$, variance $\sigma^2$ and bounded third absolute moment, $\rho = \mathbb{E}[|X_1 - \mu|^3] &amp;lt; \infty$.</description>
+      
     </item>
     
     <item>
@@ -93,7 +116,9 @@ Statement Let $X_1, X_2, &amp;hellip;, X_n$ be a sequence of iid. random variabl
       <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/markov-inequality-proof/</guid>
-      <description>Sometimes, it might be useful for us to bound the probability of some random variable $X$ being bigger than some number $\epsilon$.</description>
+      
+        <description>Sometimes, it might be useful for us to bound the probability of some random variable $X$ being bigger than some number $\epsilon$.</description>
+      
     </item>
     
     <item>
@@ -102,7 +127,9 @@ Statement Let $X_1, X_2, &amp;hellip;, X_n$ be a sequence of iid. random variabl
       <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/subgaussian-exepctation-proof/</guid>
-      <description>This is a portion of exercise 5.7 in Lattimore&amp;rsquo;s Bandit Algorithms. The rest of the results are not too hard to prove, but I found this portion of exercise 5.</description>
+      
+        <description>This is a portion of exercise 5.7 in Lattimore&amp;rsquo;s Bandit Algorithms. The rest of the results are not too hard to prove, but I found this portion of exercise 5.</description>
+      
     </item>
     
     <item>
@@ -111,8 +138,10 @@ Statement Let $X_1, X_2, &amp;hellip;, X_n$ be a sequence of iid. random variabl
       <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://alexsieusahai.github.io/post/variance_of_average/</guid>
-      <description>This is exercise 5.1 from Lattimore&amp;rsquo;s Bandit Algorithms.
+      
+        <description>This is exercise 5.1 from Lattimore&amp;rsquo;s Bandit Algorithms.
 Statement Let $X_1, X_2, &amp;hellip;, X_n$ be a sequence of iid. random variables with mean $\mu$ and variance $\sigma^2 &amp;lt; \infty$.</description>
+      
     </item>
     
   </channel>

@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Alex Sieusahai&#39;s Notes</title>
+    <title>Categories on Alex Sieusahai&#39;s Blog</title>
     <link>https://alexsieusahai.github.io/categories/</link>
-    <description>Recent content in Categories on Alex Sieusahai&#39;s Notes</description>
+    <description>Recent content in Categories on Alex Sieusahai&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    
-	<atom:link href="https://alexsieusahai.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en</language><atom:link href="https://alexsieusahai.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

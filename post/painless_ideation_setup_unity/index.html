@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html  dir="ltr" lang="en" data-theme=""><head>
+    <title> Alex Sieusahai | The Virtues of Setup / Teardown for Scene Management In Unity </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.68.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="My Notes on various things I&#39;ve learned">
+    
+    
+    
+    
+    <link rel="stylesheet"
+        href="/css/main.min.dffd6b2402f7f446a1c67600aedf73f95b7193004867c7d40daae2e502a376ed.css"
+        integrity="sha256-3/1rJAL39EahxnYArt9z&#43;VtxkwBIZ8fUDari5QKjdu0="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    
+    <link rel="stylesheet"
+        href="/css/markupHighlight.min.cc84ed683057cc175ddfa738ea6ba2d5c882b95cb64f50bf9be918cb3791887b.css"
+        integrity="sha256-zITtaDBXzBdd36c46mui1ciCuVy2T1C/m&#43;kYyzeRiHs="
+        crossorigin="anonymous"
+        type="text/css">
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+
+    <link rel="canonical" href="/post/painless_ideation_setup_unity/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="/js/anatole-header.min.d8599ee07b7d3f11bafbac30657ccc591e8d7fd36a9f580cd4c09e24e0e4a971.js"
+            integrity="sha256-2Fme4Ht9PxG6&#43;6wwZXzMWR6Nf9Nqn1gM1MCeJODkqXE="
+            crossorigin="anonymous"></script>
+
+
+    
+        
+        
+        <script type="text/javascript"
+                src="/js/anatole-theme-switcher.min.2c507695a28320822cee065375387eac9bc9f3dfd49d4dcf84bbaca2b8efb30c.js"
+                integrity="sha256-LFB2laKDIIIs7gZTdTh&#43;rJvJ89/UnU3PhLusorjvsww="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Virtues of Setup / Teardown for Scene Management In Unity"/>
+<meta name="twitter:description" content="I&rsquo;m currently developing an indie game, and it&rsquo;s my first time working with Unity. I feel very comfortable working with Unity and C# now after 2-3 months of working with the tools around 8 hours a day, but there&rsquo;s still things I learn everyday."/>
+
+
+    
+
+</head>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="/images/profile.jpg" alt="profile picture">
+            <h3 title=""><a href="/">Alex Sieusahai&#39;s Blog</a></h3>
+            <div class="description">
+                <p>My Notes on various things I've learned</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://linkedin.com/in/alexsieusahai" rel="me" aria-label="Linkedin">
+                    <i class="fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/alexsieusahai" rel="me" aria-label="GitHub">
+                    <i class="fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="alexsieu14@gmail.com" rel="me" aria-label="e-mail">
+                    <i class="fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy;  Alex Sieusahai 2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/post/"
+                        
+                   title="">Posts</a></li>
+        
+            
+            <li><a 
+                   href="/about/"
+                        
+                   title="">About</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>The Virtues of Setup / Teardown for Scene Management In Unity</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date"> Wed, Jun 16, 2021 
+                                           </span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time">6-minute read</span>
+                    </div>
+                
+            </div>
+
+            <p>I&rsquo;m currently developing an indie game, and it&rsquo;s my first time working with Unity.
+I feel very comfortable working with Unity and C# now after 2-3 months of working with the tools around 8 hours a day, but there&rsquo;s still things I learn everyday.
+There&rsquo;s something mildly painful and annoying about Unity&rsquo;s normal scene management, which is (to the best of my knowledge) not so much a fault of Unity, but moreso a fault of the way I designed things.
+Moreover, there&rsquo;s a simple way to work around it.</p>
+<h1 id="problem">Problem</h1>
+<p>Most games need some kind of logic which is handled every frame, which handles a variety of things. For example, we could have an object which handles consuming keyboard and mouse inputs, another which handles night and day cycles, etc.</p>
+<h1 id="solution-1-god">Solution 1 (God)</h1>
+<p>There was (to the best of my knowledge this pattern has been phased out for obvious reasons) a common pattern known as God, which handles all of this logic all in one class.
+The first problem I have with this solution is often touted; this violates the Single Responsibility Principle blatantly and as such many developers agree that this is a bad practice.
+Additionally, this violates the principle of small classes.
+Why, practically, does this matter?</p>
+<p>The first, most obvious problem that I can see is handling of order registering when it comes to objects which would normally interact with one another.
+Suppose we call function <code>foo</code>, we then call 10 other functions, then we call function <code>bar</code>.
+There is some strange behaviour.
+We expect it to be coming from <code>foo</code>, but we aren&rsquo;t sure; how can we place the blame on <code>foo</code> when we also have to walk through 10 other functions&rsquo; implementations to ensure that it&rsquo;s not caused by <code>bar</code>?
+This is not so much a problem for a solo dev that&rsquo;s working on their work daily, but for teams of multiple people with improper review practice and dodgy code it could become a problem; tracking down seeminingly benign bugs can become a nightmare in this situation.</p>
+<p>Another major problem is the overwriting of variables in a seemingly benign way, especially if you&rsquo;re doing async calls.
+Variable names are often dependent on their context; <code>amount</code> in the context of a resource node (probably) means how much resource the node has remaining, whereas <code>amount</code> in the context of an inventory likely refers to the amount of a certain item.
+This is something most people intuitively do, and in the context of a God class, it&rsquo;s very easy to overwrite variables you shouldn&rsquo;t be writing over; this is reminiscent of the common beginner pitfall of using too many global variables.</p>
+<p>There&rsquo;s a myriad of other reasons why this pattern is probably not a good idea, which can be found snooping around on Google.</p>
+<p>It&rsquo;s well worth noting, however, that we can (usually) refactor God classes into multiple smaller <em>Handlers</em>, all of which are responsible for maintaining (or <em>handling</em>) the game world.</p>
+<h1 id="solution-2-handlers">Solution 2 (Handlers)</h1>
+<p>Now, we alleviate the problem of the God class being too big, and we can allow all handlers to have a single responsibility (if they don&rsquo;t, just break them up into multiple handlers).
+As far as I&rsquo;ve found, this has been a very useful solution to the world maintenance problem; we can use these handlers to ensure that the game world functions as intended, and introducing more mechanics is as easy as defining a new handler.</p>
+<p>There&rsquo;s a very annoying and troublesome problem within the way Unity does things, however.
+These handlers are scene dependent; introducing a new handler to all scenes requires you to navigate to all scenes to add the handler.</p>
+<p>This on the surface seems like kind of a pain, but we can steal a very useful design for transitioning between states while ensuring that some properties of the state are maintained.
+Namely, we can use the <code>Setup</code> and <code>Teardown</code> design from unit testing frameworks, and we can use this during scene transition to maintain the state of whatever is desired during scene transitions, while <em>additionally</em> handling the problem of scene handler introduction to all scenes.</p>
+<p>There are a couple pain points with this, however.</p>
+<h1 id="why-bother">Why Bother?</h1>
+<p>The main pain point, by far, is consistency between all of your various scenes and tests.
+Namely, something will work with your tests that&rsquo;s consistent without some certain handler introduced, and introduction of your handler could break something.
+I&rsquo;d much rather break in the small unit tests instead of breaking somewhere in game that&rsquo;s much harder to reproduce and debug.</p>
+<p>The other pain point is convenience; when you have dozens of these handlers lying around maintaining everything you need to, you really don&rsquo;t want to go through and introduce each of these prefabs into a new scene or test.</p>
+<h1 id="programmatic-loading-of-prefabs-without-_any_-editor-intervention">Programmatic Loading of Prefabs Without <em>Any</em> Editor Intervention</h1>
+<p>Let&rsquo;s go over the main way of loading a prefab object with the editor.
+Note that the following code snippet is purely demonstrative and has not been formally tested; there might be some minor API call mistakes or things of that magnitude.
+Let&rsquo;s take a Unity-speak example which should emulate the coin blocks from Super Mario Bros:</p>
+<pre><code>class CoinBlock : MonoBehaviour
+{
+    [SerializeField]
+    GameObject coinPrefab, nullBlockPrefab;
+    [SerializeField]
+    Vector3 coinOffset;
+    
+    void OnPlayerUpwardCollision()
+    {
+        Destroy(this.gameObject);
+        Instantiate(nullBlockPrefab, transform.position, transform.rotation);
+        Instantiate(coinPrefab, transform.position + coinOffset, Quaternion.identity);
+    }
+}
+</code></pre><p>The main thing we need to replace is the following:</p>
+<pre><code>[SerializeField]
+GameObject coinPrefab, nullBlockPrefab;
+</code></pre><p>Something we can do is load the <code>coinPrefab</code> and <code>nullBlockPrefab</code> from <code>Resources</code> programatically, using something along the lines of <code>Instantiate(Resources.Load&lt;GameObject&gt;(&quot;coinPrefab&quot;))</code>.
+The main problem I have with this is that there&rsquo;s all of these lingering string literals, but for now this seems to suffice.</p>
+<p>Now, we can setup a setup function as following:</p>
+<ol>
+<li>Define a <code>ResourceHandler</code> which defines <code>Setup</code> and <code>Teardown</code> functions.</li>
+<li>Keep all of your prefabs under <code>Resources</code> in some way (my current preference is <code>Resources/Prefabs/&lt;prefab_name&gt;</code>).</li>
+<li>Define your <code>Setup</code> function to load in all <code>Handler</code> type objects from <code>Prefabs/Handlers</code> (or whatever you so choose).</li>
+<li>Remove all <code>Handler</code> objects from your scene, and just use this <code>Setup</code> object to instantiate all <code>Handler</code> objects.</li>
+</ol>
+<h1 id="handling-of-awake">Handling of Awake</h1>
+<p>There&rsquo;s also a new problem in that any code in <code>Awake</code> that relies on any sort of information passing between the <code>Handler</code> and <code>Object</code> (such as subscription to a certain event where <code>UnityEvent</code>s won&rsquo;t suffice, introduction into some handler specific queue for updating or whatever) must now be refactored.</p>
+<p>What we can do instead is just use <code>Invoke</code> a <code>UnityEvent</code> after handling the <code>Setup</code> which then runs the <code>Awake</code> code in invocation.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>This hopefully presents a very painless way of setting up all of your logic handlers that&rsquo;s consistent between scenes (and additionally tests).</p>
+</div>
+        <div class="post-footer">
+            <div class="info">
+                
+                
+            </div>
+        </div>
+
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script><script defer
+                type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+                integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN"
+                crossorigin="anonymous"></script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script></body>
+
+</html>
