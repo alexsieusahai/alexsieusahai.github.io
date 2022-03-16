@@ -13,7 +13,7 @@ First off, [the pwnable is here](https://www.damnvulnerabledefi.xyz/challenges/1
 Also, skimming through notes on Flash Loans along with a skim through the interface defined by
 ERC20 is helpful (the former for context, and the latter for the solution).
 
-## What do we have to accomplish?
+## What Do We Have To Accomplish?
 
 The following test has to pass:
 ```js
@@ -52,7 +52,7 @@ We can see that `poolBalance` comes from using the `depositTokens` function inst
 just directly interacting with `damnValuableToken.transferFrom`; this clearly is our culprit!
 That is, this program assumes that `depositTokens` is the only way to change the value of `damnValuableToken`s `poolBalance`.
 
-## Obtaining the Exploit
+## Obtaining The Exploit
 
 [Looking through the EIP-20 standard](https://eips.ethereum.org/EIPS/eip-20), ctrlf'ing for 
 "transfer", we find the function that we want:
