@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Damn Vulnerable DeFi - Unstoppable
+title:  Damn Vulnerable DeFi - Naive Receiver
 categories: [DeFi, Solidity, DVDF]
 excerpt: Writeup for Naive Receiver.
 ---
