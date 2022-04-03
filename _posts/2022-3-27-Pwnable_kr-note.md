@@ -4,7 +4,7 @@ title:  Pwnable.kr - note
 categories: [pwnable.kr]
 excerpt: Writeup for note.
 ---
-# note
+# Pwnable.kr - Note
 
 The challenge can be found [here](http://pwnable.kr/play.php).
 

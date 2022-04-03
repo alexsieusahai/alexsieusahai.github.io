@@ -4,7 +4,7 @@ title:  Pwnable.kr - echo1
 categories: [pwnable.kr]
 excerpt: Writeup for echo1.
 ---
-# echo1
+# Pwnable.kr - Echo1
 
 The challenge can be found [here](http://pwnable.kr/play.php).
 
